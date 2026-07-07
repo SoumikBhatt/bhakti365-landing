@@ -1,209 +1,821 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://fonts.googleapis.com/css?family=Laila' rel='stylesheet'>
-    <title>Bhakti365 - Daily Hinduism</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg-color: #FFF8F0;
-            --text-color: #221A14;
-            --section-bg: rgba(243, 223, 210, 0.5);
-            --section-title: #D86D00;
-            --section-content: #221A14;
-            --app-title: #D86D00;
-            --version-info: #D86D004C;
-            --section-border: rgba(214, 195, 182, 0.5);
-        }
-
-        [data-theme="dark"] {
-            --bg-color: #0F0F1B;
-            --text-color: #EFE0D6;
-            --section-bg: rgba(81, 68, 59, 0.5);
-            --section-title: #FFB77C;
-            --section-content: #EFE0D6;
-            --app-title: #FFB77C;
-            --version-info: #FFB77C4C;
-            --section-border: rgba(81, 68, 59, 0.5);
-        }
-
-        body {
-            font-family: 'Laila', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            padding: 24px 16px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .section {
-            background: var(--section-bg);
-            border-radius: 24px;
-            border: 1px solid var(--section-border);
-            padding: 24px;
-            margin-bottom: 20px;
-            box-shadow: none;
-        }
-
-        .section-title {
-            color: var(--section-title);
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            text-align: center;
-        }
-
-        .section-content {
-            color: var(--section-content);
-            font-size: 16px;
-            line-height: 1.6;
-            text-align: justify;
-        }
-
-        .app-title {
-            color: var(--app-title);
-            font-size: 32px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 12px;
-        }
-
-        ul {
-            margin-left: 24px;
-            margin-top: 12px;
-        }
-
-        li {
-            margin-bottom: 12px;
-        }
-
-        a {
-            color: var(--section-title);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .hero {
-            text-align: center;
-            background: transparent;
-            border: none;
-            padding: 32px 16px;
-            margin-bottom: 8px;
-        }
-
-        .hero img {
-            width: 140px;
-            height: 140px;
-            border-radius: 28px;
-            margin-bottom: 24px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        }
-
-        .subtitle {
-            font-size: 18px;
-            color: var(--text-color);
-            opacity: 0.9;
-            margin-bottom: 32px;
-        }
-
-        .play-store-btn {
-            display: inline-block;
-            background-color: var(--section-title);
-            color: var(--bg-color);
-            padding: 14px 32px;
-            border-radius: 30px;
-            font-size: 18px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: transform 0.2s, opacity 0.2s;
-            box-shadow: 0 4px 12px rgba(216, 109, 0, 0.3);
-        }
-
-        [data-theme="dark"] .play-store-btn {
-            box-shadow: 0 4px 12px rgba(255, 183, 124, 0.2);
-            color: var(--bg-color);
-        }
-
-        .play-store-btn:hover {
-            opacity: 0.9;
-            text-decoration: none;
-            transform: translateY(-2px);
-            color: var(--bg-color);
-        }
-
-        .footer-links {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 24px;
-            border-top: 1px solid var(--section-border);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            font-size: 15px;
-        }
-
-        .footer-links a {
-            color: var(--text-color);
-            opacity: 0.8;
-            font-weight: 500;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhakti365 — Your Daily Spiritual Companion</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Connect with your spiritual roots daily. Bhakti365 brings accurate Vedic Panchangam, the Bhagavad Gita, mantras, a digital Jap Mala, and festival updates to your phone in a beautiful, private, and offline-first design.">
+  <meta name="keywords" content="Bhakti365, Hindu app, Panchang, Bhagavad Gita, Mantras, Jap Mala, Vedic Astrology, Hindu Festivals, Spiritual App">
+  <meta name="author" content="Bhakti365 Dev Team">
+  <link rel="canonical" href="https://bhakti365.app/">
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="assets/style.css">
+  
+  <!-- Material Symbols for Premium Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0" rel="stylesheet" />
 </head>
-
 <body>
 
-    <div class="hero">
+  <!-- Sticky Header / Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <a href="#" class="logo">
         <img src="assets/bhakti365.png" alt="Bhakti365 App Icon">
-        <h1 class="app-title">Bhakti365 - Daily Hinduism</h1>
-        <p class="subtitle">Your digital companion for a devoted and spiritual life.</p>
-        <a href="https://play.google.com/store/apps/details?id=com.workofsoumik.bhakti365" target="_blank"
-            rel="noopener noreferrer" class="play-store-btn">Get it
-            on Google Play</a>
-    </div>
+        <span>Bhakti365</span>
+      </a>
+      
+      <!-- Responsive Menu Button -->
+      <button class="burger-menu" id="burger-menu-btn" aria-label="Toggle navigation menu">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
 
-    <div class="section">
-        <h2 class="section-title">Why Choose Bhakti365?</h2>
-        <p class="section-content" style="text-align: center; margin-bottom: 20px;">
-            Bhakti365 brings the essence of Hinduism right to your phone, helping you stay connected to your roots every
-            single day.
-        </p>
-        <ul class="section-content">
-            <li><strong>✨ Daily Panchangam:</strong> Accurate astrological calculations including Tithi, Nakshatra,
-                Yoga, and Karana.</li>
-            <li><strong>🕉️ Shlokas & Mantras:</strong> A curated collection of essential prayers for your daily
-                practice and peace of mind.</li>
-            <li><strong>📅 Festivals & Vratas:</strong> Stay updated with upcoming Hindu festivals and important fasting
-                days.</li>
-            <li><strong>🛕 Temple Locator:</strong> Find nearby temples effortlessly to visit and offer your prayers.
-            </li>
-            <li><strong>🔔 Personalized Alerts:</strong> Never miss an important auspicious time, muhurtha, or festival.
-            </li>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#panchang" class="nav-link">Panchang</a>
+        <a href="#timeline" class="nav-link">Festivals</a>
+        <a href="#gita" class="nav-link">Bhagavad Gita</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle dark mode">
+          <span class="material-symbols-outlined">dark_mode</span>
+        </button>
+        <a href="https://play.google.com/store/apps/details?id=com.workofsoumik.bhakti365" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Get the App</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+    <!-- Hero Section -->
+    <section class="section hero-section" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>Your Daily Spiritual Companion</h1>
+          <p>Awaken your daily devotion and bring ancient Vedic wisdom into your life. Plan your day with accurate Panchanga, read the Bhagavad Gita, track chants, and celebrate festivals in a serene, distraction-free environment.</p>
+          
+          <div class="hero-buttons">
+            <a href="https://play.google.com/store/apps/details?id=com.workofsoumik.bhakti365" target="_blank" rel="noopener noreferrer" class="app-store-badge">
+              <svg viewBox="0 0 512 512">
+                <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58 33.3-60.7-60.7 60.1-60.1 58.6 33.6c15 8.6 24.8 24.5 24.8 41.6 0 17-9.8 33-24.8 41.6zM325.3 277.7l60.1 60.1L104.6 499l220.7-221.3z" />
+              </svg>
+              <div class="badge-text">
+                <span>Get it on</span>
+                <span>Google Play</span>
+              </div>
+            </a>
+            
+            <a href="#" class="app-store-badge" onclick="alert('App Store version is coming soon!'); return false;">
+              <svg viewBox="0 0 384 512">
+                <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-48.7-22.9-83-22.9-45.7 0-90.1 27.2-113.6 68.9-48.4 85.8-12.4 212.8 33.9 276.7 22.5 31.9 49 68.6 82.2 67.2 31.5-1.3 43.6-20.7 82.2-20.7 38.6 0 49.6 20.7 82.2 20.7 33.9 0 57.4-33.3 79.9-65.7 26.2-37.8 36.9-74.4 37.3-76.2-1.3-.4-71.2-26.7-71.5-108.9zM249 103c21.5-26.2 36-62.6 32-99-32.8 1.3-72.7 22.4-96.3 49.7-20.3 22.9-38 59.9-33.2 96 36.5 2.8 74.3-20.3 97.5-46.7z" />
+              </svg>
+              <div class="badge-text">
+                <span>Download on the</span>
+                <span>App Store</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Subtle Badges -->
+          <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="material-symbols-outlined" style="color: var(--color-primary);">shield</span>
+              <span style="font-weight: 500; font-size: 0.95rem;">Privacy First</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="material-symbols-outlined" style="color: var(--color-primary);">cloud_off</span>
+              <span style="font-weight: 500; font-size: 0.95rem;">100% Offline Access</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="material-symbols-outlined" style="color: var(--color-primary);">no_accounts</span>
+              <span style="font-weight: 500; font-size: 0.95rem;">No Login Required</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-mockup-container">
+          <div class="aura-bg"></div>
+
+          <!-- Hero Phone Mockup -->
+          <div class="phone-mockup">
+            <div class="phone-screen">
+              <img src="images/mockup_1.png" alt="Bhakti365 Dashboard Mockup">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Value Propositions -->
+    <section class="section animate-on-scroll" id="why-bhakti">
+      <div class="container">
+        <div class="section-header">
+          <h2>Find Serenity in the Digital Age</h2>
+          <p>We believe technology should support, not distract from, your spiritual journey. Bhakti365 is crafted to bring peace, intention, and ritual back into your day.</p>
+        </div>
+        
+        <div class="props-grid">
+          <div class="prop-card">
+            <div class="prop-icon">
+              <span class="material-symbols-outlined">auto_stories</span>
+            </div>
+            <h3>Live Every Day with Dharma</h3>
+            <p>Understand your daily duty. Receive guidance, keep track of astrological phases, and live mindfully in tune with cosmic order.</p>
+          </div>
+          
+          <div class="prop-card">
+            <div class="prop-icon">
+              <span class="material-symbols-outlined">school</span>
+            </div>
+            <h3>Learn Ancient Wisdom</h3>
+            <p>Explore the timeless scriptures like the Bhagavad Gita. Read translations and transliterations written for the modern world.</p>
+          </div>
+          
+          <div class="prop-card">
+            <div class="prop-icon">
+              <span class="material-symbols-outlined">self_improvement</span>
+            </div>
+            <h3>Practice Mindfully</h3>
+            <p>Integrate short mantras, chants, and structured Jap meditations into your busy morning or evening routines seamlessly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Showcase Slider -->
+    <section class="section animate-on-scroll" id="showcase" style="background-color: var(--color-surface-tint); padding-bottom: 90px;">
+      <div class="container">
+        <div class="section-header">
+          <h2>Step Inside the App</h2>
+          <p>Explore our beautiful, distraction-free screens crafted for deep practice, contemplation, and daily ritual.</p>
+        </div>
+
+        <div class="showcase-slider-container">
+          <div class="showcase-track" id="showcase-track">
+            <!-- Screen 1: Dashboard -->
+            <div class="showcase-item">
+              <div class="showcase-phone-frame">
+                <img src="images/mockup_1.png" alt="Home Screen Dashboard">
+              </div>
+              <div class="showcase-caption">Daily Dashboard</div>
+            </div>
+
+            <!-- Screen 2: Panchanga -->
+            <div class="showcase-item">
+              <div class="showcase-phone-frame">
+                <img src="images/mockup_2.png" alt="Panchanga Calculation Screen">
+              </div>
+              <div class="showcase-caption">Vedic Panchangam</div>
+            </div>
+
+            <!-- Screen 3: Gita Scripture -->
+            <div class="showcase-item">
+              <div class="showcase-phone-frame">
+                <img src="images/mockup_3.png" alt="Bhagavad Gita Study Screen">
+              </div>
+              <div class="showcase-caption">Festival</div>
+            </div>
+
+            <!-- Screen 4: Mantra Player -->
+            <div class="showcase-item">
+              <div class="showcase-phone-frame">
+                <img src="images/mockup_4.png" alt="Mantra Audio Player Screen">
+              </div>
+              <div class="showcase-caption">Gita</div>
+            </div>
+
+            <!-- Screen 5: Digital Jap Mala -->
+            <div class="showcase-item">
+              <div class="showcase-phone-frame">
+                <img src="images/mockup_5.png" alt="Digital Jap Mala Counter Screen">
+              </div>
+              <div class="showcase-caption">Rashi Calculator</div>
+            </div>
+          </div>
+
+          <!-- Navigation Controls -->
+          <div class="showcase-controls">
+            <button class="control-btn" id="showcase-prev" aria-label="Previous Slide">
+              <span class="material-symbols-outlined">chevron_left</span>
+            </button>
+            <button class="control-btn" id="showcase-next" aria-label="Next Slide">
+              <span class="material-symbols-outlined">chevron_right</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Bento Grid -->
+    <section class="section animate-on-scroll" id="features">
+      <div class="container">
+        <div class="section-header">
+          <h2>Sacred Tools for Daily Life</h2>
+          <p>Everything you need for your daily spiritual path, unified under a singular, beautifully designed interface.</p>
+        </div>
+
+        <div class="bento-grid">
+          
+          <!-- Panchang (col-span-2, row-span-2) -->
+          <div class="bento-card col-span-2 row-span-2">
+            <div class="bento-card-bg-glow"></div>
+            <div class="bento-card-header">
+              <div class="bento-icon">
+                <span class="material-symbols-outlined">calendar_month</span>
+              </div>
+              <span class="bento-tag">Vedic Astrometry</span>
+            </div>
+            <h3>Daily Panchang</h3>
+            <p>Accurate astronomical calculations including Tithi, Nakshatra, Sunrise, and Sunset. Know Rahu Kalam and Abhijit Muhurtha times to plan your daily activities.</p>
+            
+            <!-- Mini app preview inside card -->
+            <div style="background: var(--color-surface-tint); padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--color-border); font-size: 0.85rem; margin-top: auto;">
+              <div style="display:flex; justify-content:space-between; margin-bottom: 6px;">
+                <span style="color: var(--color-text-muted);">Auspicious (Abhijit)</span>
+                <span style="font-weight:700; color: #2E7D32;">11:59 AM - 12:52 PM</span>
+              </div>
+              <div style="display:flex; justify-content:space-between;">
+                <span style="color: var(--color-text-muted);">Inauspicious (Rahu)</span>
+                <span style="font-weight:700; color: #C62828;">12:20 PM - 02:04 PM</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bhagavad Gita (col-span-2) -->
+          <div class="bento-card col-span-2 accent-card">
+            <div class="bento-card-header">
+              <div class="bento-icon">
+                <span class="material-symbols-outlined">menu_book</span>
+              </div>
+              <span class="bento-tag" style="color: var(--color-accent);">Scripture</span>
+            </div>
+            <h3>Bhagavad Gita</h3>
+            <p>Explore all 700 verses of the Gita. Read side-by-side Sanskrit, English transliteration, word-by-word translations, and comprehensive summaries.</p>
+          </div>
+
+          <!-- Healing Mantras -->
+          <div class="bento-card">
+            <div class="bento-card-header">
+              <div class="bento-icon">
+                <span class="material-symbols-outlined">graphic_eq</span>
+              </div>
+            </div>
+            <h3>Mantras & Chants</h3>
+            <p>Listen to professionally recorded high-quality audio loops of Vedic mantras. Includes Sanskrit texts and meaning guides.</p>
+          </div>
+
+          <!-- Festival Calendar -->
+          <div class="bento-card">
+            <div class="bento-card-header">
+              <div class="bento-icon">
+                <span class="material-symbols-outlined">event_note</span>
+              </div>
+            </div>
+            <h3>Festival Calendar</h3>
+            <p>Stay notified of upcoming fasting days, Ekadashis, Vratas, and prominent Hindu festivals across the year.</p>
+          </div>
+
+          <!-- Digital Jap Mala (Interactive Widget) (col-span-2, row-span-2) -->
+          <div class="bento-card col-span-2 row-span-2 primary-card">
+            <div class="bento-card-header">
+              <div class="bento-icon">
+                <span class="material-symbols-outlined">animation</span>
+              </div>
+              <span class="bento-tag" style="color: white;">Try it Live</span>
+            </div>
+            
+            <div class="mala-bento-layout">
+              <div class="mala-bento-info">
+                <h3>Digital Jap Mala</h3>
+                <p>A virtual Jap Mala directly inside your app. Tap the center bead to count your chants. Perfect for focus and daily practice on the go.</p>
+              </div>
+              
+              <div class="mala-widget-wrapper">
+                <div class="mala-beads-circle" id="mala-beads-circle">
+                  <div class="mala-center-counter" id="mala-counter">
+                    <span class="mala-count" id="mala-count">0</span>
+                    <span class="mala-label">Chants</span>
+                  </div>
+                </div>
+                <div class="mala-total-rounds">
+                  Rounds Completed: <span id="mala-rounds-count">0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rashi Calculator -->
+          <div class="bento-card">
+            <div class="bento-card-header">
+              <div class="bento-icon">
+                <span class="material-symbols-outlined">explore</span>
+              </div>
+            </div>
+            <h3>Rashi Calculator</h3>
+            <p>Calculate your Vedic Moon sign (Rashi) and Nakshatra based on your birth details for personalized Vedic insights.</p>
+          </div>
+
+          <!-- Nearby Temples -->
+          <div class="bento-card">
+            <div class="bento-card-header">
+              <div class="bento-icon">
+                <span class="material-symbols-outlined">temple_hindu</span>
+              </div>
+            </div>
+            <h3>Nearby Temples</h3>
+            <p>Locate prominent Hindu temples near your current position with routes, timings, and deity details.</p>
+          </div>
+
+          <!-- Offline Access -->
+          <div class="bento-card">
+            <div class="bento-card-header">
+              <div class="bento-icon">
+                <span class="material-symbols-outlined">cloud_off</span>
+              </div>
+            </div>
+            <h3>Offline First</h3>
+            <p>Never worry about poor connections. All content is saved locally on your device for immediate, offline access.</p>
+          </div>
+
+          <!-- Privacy Centered -->
+          <div class="bento-card">
+            <div class="bento-card-header">
+              <div class="bento-icon">
+                <span class="material-symbols-outlined">lock</span>
+              </div>
+            </div>
+            <h3>Privacy Centered</h3>
+            <p>We collect zero analytics, require no login, and store no personal details. Your spiritual path is personal and private.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Panchang Preview Widget Section -->
+    <section class="section animate-on-scroll" id="panchang" style="background-color: var(--color-surface-tint);">
+      <div class="container">
+        <div class="section-header">
+          <h2>Interactive Panchangam</h2>
+          <p>Experience the precise astronomical widget built directly into Bhakti365. Toggle between days to align your practices with cosmic timings.</p>
+        </div>
+
+        <div class="panchang-container">
+          <!-- Days Tabs -->
+          <div class="panchang-tabs">
+            <button class="panchang-tab" data-day="yesterday">Yesterday</button>
+            <button class="panchang-tab active" data-day="today">Today</button>
+            <button class="panchang-tab" data-day="tomorrow">Tomorrow</button>
+          </div>
+
+          <!-- Panchang Card Grid -->
+          <div class="panchang-card">
+            <div class="panchang-card-header">
+              <h3 id="panchang-title">Vedic Calendar</h3>
+              <div class="panchang-date" id="panchang-date">Wednesday, Jul 8, 2026 (Today)</div>
+            </div>
+
+            <div class="panchang-card-body">
+              <div class="panchang-metrics" style="grid-template-columns: repeat(2, 1fr);">
+                <div class="panchang-item">
+                  <span class="material-symbols-outlined panchang-item-icon">nights_stay</span>
+                  <div class="panchang-item-info">
+                    <span>Tithi</span>
+                    <span id="panchang-tithi-val">Krishna Ashtami</span>
+                  </div>
+                </div>
+
+                <div class="panchang-item">
+                  <span class="material-symbols-outlined panchang-item-icon">star</span>
+                  <div class="panchang-item-info">
+                    <span>Nakshatra</span>
+                    <span id="panchang-nakshatra-val">Revati</span>
+                  </div>
+                </div>
+
+                <div class="panchang-item">
+                  <span class="material-symbols-outlined panchang-item-icon">wb_sunny</span>
+                  <div class="panchang-item-info">
+                    <span>Sunrise</span>
+                    <span id="panchang-sunrise-val">05:29 AM</span>
+                  </div>
+                </div>
+
+                <div class="panchang-item">
+                  <span class="material-symbols-outlined panchang-item-icon">sunny_snowing</span>
+                  <div class="panchang-item-info">
+                    <span>Sunset</span>
+                    <span id="panchang-sunset-val">07:12 PM</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Festival Timeline Section -->
+    <section class="section animate-on-scroll" id="timeline">
+      <div class="container">
+        <div class="section-header">
+          <h2>Yearly Festival Cycle</h2>
+          <p>Align with the flow of traditional celebrations. Bhakti365 tracks solar, lunar, and regional calendar events to ensure you stay connected.</p>
+        </div>
+
+        <div class="timeline-outer">
+          <div class="timeline-line"></div>
+
+          <!-- Festival 1 -->
+          <div class="timeline-node">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content-wrapper">
+              <div class="timeline-card">
+                <div class="timeline-date">Spring Season (Feb/Mar)</div>
+                <h3>Maha Shivratri</h3>
+                <p>The great night of Lord Shiva. Honored with fasting, night-long vigil, prayers, and chants of Panchakshari Mantra, celebrating the wedding of Shiva and Parvati.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Festival 2 -->
+          <div class="timeline-node">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content-wrapper">
+              <div class="timeline-card">
+                <div class="timeline-date">Spring Season (Apr)</div>
+                <h3>Rama Navami</h3>
+                <p>Celebrating the birth of Lord Rama, the ideal king and human (Maryada Purushottama). Marked by reading the Ramayana, fasting, and singing devotional bhajans.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Festival 3 -->
+          <div class="timeline-node">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content-wrapper">
+              <div class="timeline-card">
+                <div class="timeline-date">Monsoon Season (Aug/Sep)</div>
+                <h3>Krishna Janmashtami</h3>
+                <p>A joyous festival celebrating the descent of Lord Krishna (Avatar of Vishnu). Observed with mid-night prayers, devotional worship, and breaking of fasts at dawn.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Festival 4 -->
+          <div class="timeline-node">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content-wrapper">
+              <div class="timeline-card">
+                <div class="timeline-date">Autumn Season (Sep)</div>
+                <h3>Ganesh Chaturthi</h3>
+                <p>Commemorating the arrival of Lord Ganesha, the Lord of Obstacles, Wisdom, and New Beginnings. Families install clay idols and offer sweet Modakas.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Festival 5 -->
+          <div class="timeline-node">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content-wrapper">
+              <div class="timeline-card">
+                <div class="timeline-date">Autumn Season (Oct/Nov)</div>
+                <h3>Diwali</h3>
+                <p>The festival of lights symbolizing the victory of light over darkness and knowledge over ignorance. Commemorates Lord Rama's return to Ayodhya after 14 years of exile.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Bhagavad Gita Verse Section -->
+    <section class="section animate-on-scroll" id="gita" style="background-color: var(--color-surface-tint);">
+      <div class="container">
+        <div class="section-header">
+          <h2>Daily Gita Contemplation</h2>
+          <p>Delve into the eternal dialogue of Sri Krishna and Arjuna, providing guidance for actions, mind control, and peace.</p>
+        </div>
+
+        <div class="gita-verse-card">
+          <div class="sanskrit-verse">
+            कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।<br>
+            मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥
+          </div>
+          <div class="verse-transliteration">
+            karmaṇy-evādhikāras te mā phaleṣu kadācana |<br>
+            mā karma-phala-hetur bhūr mā te saṅgo ’stv akarmaṇi ||
+          </div>
+          <div class="verse-translation">
+            "You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions. Never consider yourself to be the cause of the results of your activities, nor be attached to inactive duty."
+          </div>
+          <div class="verse-citation">Bhagavad Gita — Chapter 2, Verse 47</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section animate-on-scroll" id="benefits">
+      <div class="container">
+        <div class="section-header">
+          <h2>Crafted for a Pure Experience</h2>
+          <p>Bhakti365 is designed with high standards of software quality and attention to detail. No clutter, no distractions.</p>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <span class="material-symbols-outlined">wifi_off</span>
+            </div>
+            <div class="benefit-info">
+              <h3>Offline First</h3>
+              <p>Calculations, shlokas, and charts are stored locally on a lightweight database. Use it in remote temples, planes, or quiet mountain retreats without internet.</p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <span class="material-symbols-outlined">no_accounts</span>
+            </div>
+            <div class="benefit-info">
+              <h3>No Login Required</h3>
+              <p>Start practicing immediately. We do not require accounts, phone numbers, or email sign-ups, removing all friction from your spiritual path.</p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <span class="material-symbols-outlined">security</span>
+            </div>
+            <div class="benefit-info">
+              <h3>Privacy Focused</h3>
+              <p>We track absolutely nothing. No analytics packages are embedded, and all search details and Mala counts remain strictly inside your device's memory.</p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <span class="material-symbols-outlined">speed</span>
+            </div>
+            <div class="benefit-info">
+              <h3>Beautiful, Fast Performance</h3>
+              <p>Built with Kotlin Multiplatform, compiling directly to native machine code. It loads in milliseconds, saves storage space, and has zero rendering lag.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Roadmap -->
+    <section class="section animate-on-scroll" id="roadmap" style="background-color: var(--color-surface-tint);">
+      <div class="container">
+        <div class="section-header">
+          <h2>Development Roadmap</h2>
+          <p>See our continuous development. We aim to keep adding features that enrich your spiritual practices over time.</p>
+        </div>
+
+        <div class="roadmap-grid">
+          
+          <!-- Phase 1 -->
+          <div class="roadmap-phase completed">
+            <div class="roadmap-phase-title">
+              <h3>Phase 1</h3>
+              <span class="roadmap-badge">Released</span>
+            </div>
+            <ul class="roadmap-list">
+              <li class="roadmap-list-item">
+                <span class="material-symbols-outlined check-icon">check_circle</span>
+                <span>Vedic Panchangam Calculations</span>
+              </li>
+              <li class="roadmap-list-item">
+                <span class="material-symbols-outlined check-icon">check_circle</span>
+                <span>Bhagavad Gita Verse Reader</span>
+              </li>
+              <li class="roadmap-list-item">
+                <span class="material-symbols-outlined check-icon">check_circle</span>
+                <span>Festival & Fasting Calendar</span>
+              </li>
+              <li class="roadmap-list-item">
+                <span class="material-symbols-outlined check-icon">check_circle</span>
+                <span>Offline local database architecture</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Phase 2 -->
+          <div class="roadmap-phase active">
+            <div class="roadmap-phase-title">
+              <h3>Phase 2</h3>
+              <span class="roadmap-badge">Active</span>
+            </div>
+            <ul class="roadmap-list">
+              <li class="roadmap-list-item">
+                <span class="material-symbols-outlined dot-icon">radio_button_checked</span>
+                <strong>Interactive Audio Mantras</strong>
+              </li>
+              <li class="roadmap-list-item">
+                <span class="material-symbols-outlined dot-icon">radio_button_checked</span>
+                <strong>Digital Mala Counting Log</strong>
+              </li>
+              <li class="roadmap-list-item">
+                <span class="material-symbols-outlined dot-icon">radio_button_checked</span>
+                <strong>Auspicious Time Alerts (Muhurthas)</strong>
+              </li>
+              <li class="roadmap-list-item">
+                <span class="material-symbols-outlined dot-icon">radio_button_checked</span>
+                <strong>Premium Lockscreen Widgets</strong>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Phase 3 -->
+          <div class="roadmap-phase upcoming">
+            <div class="roadmap-phase-title">
+              <h3>Phase 3</h3>
+              <span class="roadmap-badge">Planned</span>
+            </div>
+            <ul class="roadmap-list">
+              <li class="roadmap-list-item">
+                <span class="material-symbols-outlined lock-icon">lock</span>
+                <span>AI Spiritual Guide (Gemini API)</span>
+              </li>
+              <li class="roadmap-list-item">
+                <span class="material-symbols-outlined lock-icon">lock</span>
+                <span>Wear OS & Watch Companion App</span>
+              </li>
+              <li class="roadmap-list-item">
+                <span class="material-symbols-outlined lock-icon">lock</span>
+                <span>Vedic Temple Finder & Nav</span>
+              </li>
+              <li class="roadmap-list-item">
+                <span class="material-symbols-outlined lock-icon">lock</span>
+                <span>Sanskrit Learning Companion</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section animate-on-scroll" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <h2>Frequently Asked Questions</h2>
+          <p>Common questions about the app's features, data calculations, privacy, and roadmap.</p>
+        </div>
+
+        <div class="faq-container">
+          <!-- Q1 -->
+          <div class="faq-item">
+            <button class="faq-question-btn">
+              <span>Is Bhakti365 free to download?</span>
+              <span class="material-symbols-outlined faq-icon">add</span>
+            </button>
+            <div class="faq-answer-panel">
+              <div class="faq-answer-content">
+                Yes, Bhakti365 is 100% free to download and use. The core features, including the daily Panchang, Gita scriptures, and Jap Mala counter, will remain free forever without ads to preserve a calm practice space.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="faq-item">
+            <button class="faq-question-btn">
+              <span>Does it require internet access?</span>
+              <span class="material-symbols-outlined faq-icon">add</span>
+            </button>
+            <div class="faq-answer-panel">
+              <div class="faq-answer-content">
+                No, Bhakti365 is built offline-first. Once installed, all calculations, Sanskrit verses, translations, and calendar data are processed locally on your device without needing an active internet connection.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="faq-item">
+            <button class="faq-question-btn">
+              <span>Where does the astronomical data come from?</span>
+              <span class="material-symbols-outlined faq-icon">add</span>
+            </button>
+            <div class="faq-answer-panel">
+              <div class="faq-answer-content">
+                The Panchanga and Muhurtha calculations are derived using accurate astronomical calculations based on longitude, latitude, and timezone offsets, cross-verified with traditional Vedic ephemeris (Drik Siddhanta).
+              </div>
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="faq-item">
+            <button class="faq-question-btn">
+              <span>Is my spiritual data kept private?</span>
+              <span class="material-symbols-outlined faq-icon">add</span>
+            </button>
+            <div class="faq-answer-panel">
+              <div class="faq-answer-content">
+                Absolutely. We do not use databases on the cloud, nor do we run background tracking. Your Jap Mala counts, read progress, favorites, and settings stay completely secure on your personal device's offline database.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="faq-item">
+            <button class="faq-question-btn">
+              <span>Is there an iOS version available?</span>
+              <span class="material-symbols-outlined faq-icon">add</span>
+            </button>
+            <div class="faq-answer-panel">
+              <div class="faq-answer-content">
+                Bhakti365 is currently built using Kotlin Multiplatform, and the iOS version is undergoing testing. We plan to release it on the Apple App Store very soon. You can sign up via our contact section to get notified of its release.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Call-to-Action Section -->
+    <section class="section animate-on-scroll cta-section" id="cta">
+      <div class="container">
+        <div class="cta-banner">
+          <div class="cta-banner-content">
+            <h2>Awaken Devotion Every Day</h2>
+            <p>Join thousands of practitioners who align their daily life with ancient Vedic wisdom. Download Bhakti365 today and start your journey towards inner peace.</p>
+            <div class="cta-buttons">
+              <a href="https://play.google.com/store/apps/details?id=com.workofsoumik.bhakti365" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                Get it on Google Play
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-info">
+        <a href="#" class="logo">
+          <img src="assets/bhakti365.png" alt="Bhakti365 App Icon">
+          <span>Bhakti365</span>
+        </a>
+        <p>A serene, modern daily companion built on ancient Vedic heritage. Aligning your daily routine with spiritual practices, scriptures, and mindfulness.</p>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#panchang">Panchang</a></li>
+          <li><a href="#timeline">Festivals</a></li>
+          <li><a href="#gita">Bhagavad Gita</a></li>
         </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Inner Pages</h4>
+        <ul>
+          <li><a href="about_us.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="privacy_policy.html">Privacy Policy</a></li>
+          <li><a href="terms_condition.html">Terms & Conditions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:support@workofsoumik.com">support@workofsoumik.com</a></li>
+          <li><a href="https://workofsoumik.com" target="_blank" rel="noopener noreferrer">workofsoumik.com</a></li>
+        </ul>
+      </div>
     </div>
 
-    <div class="footer-links">
-        <a href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-        <a href="terms_condition.html" target="_blank" rel="noopener noreferrer">Terms & Conditions</a>
-        <a href="contact.html" target="_blank" rel="noopener noreferrer">Contact Us</a>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Bhakti365. Developed by workofsoumik. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-link" aria-label="Facebook"><span class="material-symbols-outlined">language</span></a>
+        <a href="#" class="social-link" aria-label="Twitter"><span class="material-symbols-outlined">share</span></a>
+      </div>
     </div>
+  </footer>
 
+  <!-- Scripts -->
+  <script src="assets/script.js"></script>
 </body>
-
 </html>
