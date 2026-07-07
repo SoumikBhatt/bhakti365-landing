@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Laila' rel='stylesheet'>
+    <title>Bhakti365 - Daily Hinduism</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-color: #FFF8F0;
+            --text-color: #221A14;
+            --section-bg: rgba(243, 223, 210, 0.5);
+            --section-title: #D86D00;
+            --section-content: #221A14;
+            --app-title: #D86D00;
+            --version-info: #D86D004C;
+            --section-border: rgba(214, 195, 182, 0.5);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0F0F1B;
+            --text-color: #EFE0D6;
+            --section-bg: rgba(81, 68, 59, 0.5);
+            --section-title: #FFB77C;
+            --section-content: #EFE0D6;
+            --app-title: #FFB77C;
+            --version-info: #FFB77C4C;
+            --section-border: rgba(81, 68, 59, 0.5);
+        }
+
+        body {
+            font-family: 'Laila', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 24px 16px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section {
+            background: var(--section-bg);
+            border-radius: 24px;
+            border: 1px solid var(--section-border);
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: none;
+        }
+
+        .section-title {
+            color: var(--section-title);
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .section-content {
+            color: var(--section-content);
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .app-title {
+            color: var(--app-title);
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        ul {
+            margin-left: 24px;
+            margin-top: 12px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        a {
+            color: var(--section-title);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            text-align: center;
+            background: transparent;
+            border: none;
+            padding: 32px 16px;
+            margin-bottom: 8px;
+        }
+
+        .hero img {
+            width: 140px;
+            height: 140px;
+            border-radius: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: var(--text-color);
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        .play-store-btn {
+            display: inline-block;
+            background-color: var(--section-title);
+            color: var(--bg-color);
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.2s, opacity 0.2s;
+            box-shadow: 0 4px 12px rgba(216, 109, 0, 0.3);
+        }
+
+        [data-theme="dark"] .play-store-btn {
+            box-shadow: 0 4px 12px rgba(255, 183, 124, 0.2);
+            color: var(--bg-color);
+        }
+
+        .play-store-btn:hover {
+            opacity: 0.9;
+            text-decoration: none;
+            transform: translateY(-2px);
+            color: var(--bg-color);
+        }
+
+        .footer-links {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--section-border);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            font-size: 15px;
+        }
+
+        .footer-links a {
+            color: var(--text-color);
+            opacity: 0.8;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hero">
+        <img src="assets/bhakti365.png" alt="Bhakti365 App Icon">
+        <h1 class="app-title">Bhakti365 - Daily Hinduism</h1>
+        <p class="subtitle">Your digital companion for a devoted and spiritual life.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.workofsoumik.bhakti365" target="_blank"
+            rel="noopener noreferrer" class="play-store-btn">Get it
+            on Google Play</a>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Why Choose Bhakti365?</h2>
+        <p class="section-content" style="text-align: center; margin-bottom: 20px;">
+            Bhakti365 brings the essence of Hinduism right to your phone, helping you stay connected to your roots every
+            single day.
+        </p>
+        <ul class="section-content">
+            <li><strong>✨ Daily Panchangam:</strong> Accurate astrological calculations including Tithi, Nakshatra,
+                Yoga, and Karana.</li>
+            <li><strong>🕉️ Shlokas & Mantras:</strong> A curated collection of essential prayers for your daily
+                practice and peace of mind.</li>
+            <li><strong>📅 Festivals & Vratas:</strong> Stay updated with upcoming Hindu festivals and important fasting
+                days.</li>
+            <li><strong>🛕 Temple Locator:</strong> Find nearby temples effortlessly to visit and offer your prayers.
+            </li>
+            <li><strong>🔔 Personalized Alerts:</strong> Never miss an important auspicious time, muhurtha, or festival.
+            </li>
+        </ul>
+    </div>
+
+    <div class="footer-links">
+        <a href="privacy_policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+        <a href="terms_condition.html" target="_blank" rel="noopener noreferrer">Terms & Conditions</a>
+        <a href="contact.html" target="_blank" rel="noopener noreferrer">Contact Us</a>
+    </div>
+
+</body>
+
+</html>
