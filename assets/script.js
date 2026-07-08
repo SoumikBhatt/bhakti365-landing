@@ -278,13 +278,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Header scroll appearance
   const header = document.querySelector('.site-header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  }
 
   // Mobil Menu Toggle
   const burgerMenuBtn = document.getElementById('burger-menu-btn');
